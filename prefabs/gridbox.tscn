@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://x7slmwj5ueuk"]
+
+[ext_resource type="Script" path="res://prefabs/gridbox.gd" id="1_irw51"]
+
+[node name="Gridbox" type="CSGBox3D" groups=["Gridbox"]]
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(0.5, 0.5, 0.5)
+script = ExtResource("1_irw51")

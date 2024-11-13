@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3mtmshww0ehh"]
+
+[ext_resource type="Texture2D" uid="uid://c48hprabhwn13" path="res://assets/materials/free_-_skybox_anime_sky_0.jpg" id="1_7bybu"]
+[ext_resource type="PackedScene" uid="uid://dvb6bw2mq48r5" path="res://prefabs/player.tscn" id="1_y70yx"]
+[ext_resource type="Texture2D" uid="uid://d05vll8ryu1n7" path="res://assets/textures/textures/painted_concrete_02_diff_1k.jpg" id="2_m7cvu"]
+[ext_resource type="Texture2D" uid="uid://dd2arti1rd0k" path="res://assets/textures/textures/painted_concrete_02_nor_gl_1k.jpg" id="3_ucaye"]
+[ext_resource type="PackedScene" uid="uid://c2uqnuwgriuhh" path="res://assets/models/godot_plush.glb" id="5_fp6hj"]
+[ext_resource type="Script" path="res://scenes/grid.gd" id="6_sdglm"]
+[ext_resource type="PackedScene" uid="uid://x7slmwj5ueuk" path="res://prefabs/gridbox.tscn" id="6_sm20x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ki4va"]
+panorama = ExtResource("1_7bybu")
+
+[sub_resource type="Sky" id="Sky_thxt6"]
+sky_material = SubResource("PanoramaSkyMaterial_ki4va")
+
+[sub_resource type="Environment" id="Environment_uk35r"]
+background_mode = 2
+sky = SubResource("Sky_thxt6")
+sky_rotation = Vector3(0, 0, 3.14159)
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl7mv"]
+albedo_texture = ExtResource("2_m7cvu")
+normal_enabled = true
+normal_texture = ExtResource("3_ucaye")
+uv1_scale = Vector3(3.475, 3.475, 3.475)
+
+[node name="Demo" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_uk35r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.854767, -0.449478, 0.259506, 2.75606e-08, 0.5, 0.866026, -0.519012, -0.74025, 0.427383, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.48183, 0)
+material_override = SubResource("StandardMaterial3D_yl7mv")
+size = Vector3(43, 0.5, 22)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.48183, 11.1)
+material_override = SubResource("StandardMaterial3D_yl7mv")
+size = Vector3(43, 0.5, 22)
+
+[node name="Player" parent="." instance=ExtResource("1_y70yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23644, 4.35124)
+
+[node name="godot_plush" parent="." instance=ExtResource("5_fp6hj")]
+transform = Transform3D(2.36973, 0, 3.37028, 0, 4.12, 0, -3.37028, 0, 2.36973, 2.86432, -2.23312, 5.5191)
+
+[node name="Grid" type="Node3D" parent="."]
+script = ExtResource("6_sdglm")
+
+[node name="Gridbox1" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0)
+
+[node name="Gridbox2" parent="Grid" instance=ExtResource("6_sm20x")]
+
+[node name="Gridbox3" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+
+[node name="Gridbox4" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.7, 0)
+
+[node name="Gridbox5" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+
+[node name="Gridbox6" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.7, 0)
+
+[node name="Gridbox7" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -1.4, 0)
+
+[node name="Gridbox8" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4, 0)
+
+[node name="Gridbox9" parent="Grid" instance=ExtResource("6_sm20x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -1.4, 0)
