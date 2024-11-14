@@ -1,13 +1,7 @@
 extends CSGBox3D
 
-
-@export var gridbox: Node3D
-
-func _ready():
-	gridbox.choose.connect(check_choose)
-
-func check_choose(num):
-	print("Choose from " + self.name)
+signal hit_event(index)
 
 func hit():
+	hit_event.emit(get_index())
 	print("Hit gridbox!")

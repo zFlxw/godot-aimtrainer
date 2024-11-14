@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvb6bw2mq48r5"]
+[gd_scene load_steps=7 format=3 uid="uid://dvb6bw2mq48r5"]
 
 [ext_resource type="Script" path="res://prefabs/player.gd" id="1_7rnu8"]
+[ext_resource type="PackedScene" uid="uid://bj5m7g5ymoy15" path="res://prefabs/weapon.tscn" id="2_bnag4"]
 [ext_resource type="Script" path="res://prefabs/hit_ray.gd" id="2_oarov"]
+[ext_resource type="Script" path="res://prefabs/ui.gd" id="4_qhc5e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndx70"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5hsa"]
+font_color = Color(1, 0, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -16,11 +23,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0420635, 0, 0.0655286)
 
-[node name="HitRay" type="RayCast3D" parent="Head"]
+[node name="Sketchfab_Scene" parent="Head/Camera3D" instance=ExtResource("2_bnag4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.209542, -0.733851, -0.144968)
+
+[node name="HitRay" type="RayCast3D" parent="Head/Camera3D"]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -10)
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("2_oarov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -36,6 +47,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 1
+script = ExtResource("4_qhc5e")
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 layout_mode = 1
@@ -50,3 +62,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(1, 0, 1, 1)
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 39.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_f5hsa")

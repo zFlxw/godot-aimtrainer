@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd2arti1rd0k"
 path.s3tc="res://.godot/imported/painted_concrete_02_nor_gl_1k.jpg-039749a93f0ba95b0f1e216ecf993a4f.s3tc.ctex"
+path.etc2="res://.godot/imported/painted_concrete_02_nor_gl_1k.jpg-039749a93f0ba95b0f1e216ecf993a4f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/textures/painted_concrete_02_nor_gl_1k.jpg"
-dest_files=["res://.godot/imported/painted_concrete_02_nor_gl_1k.jpg-039749a93f0ba95b0f1e216ecf993a4f.s3tc.ctex"]
+dest_files=["res://.godot/imported/painted_concrete_02_nor_gl_1k.jpg-039749a93f0ba95b0f1e216ecf993a4f.s3tc.ctex", "res://.godot/imported/painted_concrete_02_nor_gl_1k.jpg-039749a93f0ba95b0f1e216ecf993a4f.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d05vll8ryu1n7"
 path.s3tc="res://.godot/imported/painted_concrete_02_diff_1k.jpg-e11b29f867ef43bba7956c91a0f9f974.s3tc.ctex"
+path.etc2="res://.godot/imported/painted_concrete_02_diff_1k.jpg-e11b29f867ef43bba7956c91a0f9f974.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/textures/painted_concrete_02_diff_1k.jpg"
-dest_files=["res://.godot/imported/painted_concrete_02_diff_1k.jpg-e11b29f867ef43bba7956c91a0f9f974.s3tc.ctex"]
+dest_files=["res://.godot/imported/painted_concrete_02_diff_1k.jpg-e11b29f867ef43bba7956c91a0f9f974.s3tc.ctex", "res://.godot/imported/painted_concrete_02_diff_1k.jpg-e11b29f867ef43bba7956c91a0f9f974.etc2.ctex"]
 
 [params]
 

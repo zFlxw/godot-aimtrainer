@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj5m7g5ymoy15"]
+
+[ext_resource type="PackedScene" uid="uid://bffd1ilhpamg4" path="res://assets/models/weapon/vandal/foresaken_vandal_white.glb" id="1_50c0c"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_50c0c")]
+
+[node name="GN_AK_Fallen_Skelmesh_mo_0" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.511, 0)
+
+[node name="GN_AK_Magazine_Fallen_Staticmesh_mo_14" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.511, 0)
