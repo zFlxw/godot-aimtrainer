@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvb6bw2mq48r5"]
+[gd_scene load_steps=8 format=3 uid="uid://dvb6bw2mq48r5"]
 
 [ext_resource type="Script" path="res://prefabs/player.gd" id="1_7rnu8"]
 [ext_resource type="PackedScene" uid="uid://bj5m7g5ymoy15" path="res://prefabs/weapon.tscn" id="2_bnag4"]
@@ -12,10 +12,14 @@ font_color = Color(1, 0, 1, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3pj"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+bg_color = Color(0, 0, 0, 0.678431)
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_7rnu8")
-enable_mouse_smoothing = false
 camera = NodePath("Head/Camera3D")
 
 [node name="Head" type="Node3D" parent="."]
@@ -69,3 +73,35 @@ offset_right = 64.0
 offset_bottom = 39.0
 text = "Score: "
 label_settings = SubResource("LabelSettings_f5hsa")
+
+[node name="Settings" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sx3pj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings"]
+layout_mode = 2
+
+[node name="Sens label" type="Label" parent="UI/Settings/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sensitivity (5)"
+
+[node name="Sens" type="HSlider" parent="UI/Settings/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 5.0
+
+[node name="Button" type="Button" parent="UI/Settings/VBoxContainer"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="value_changed" from="UI/Settings/VBoxContainer/Sens" to="." method="_on_sens_value_changed"]
+[connection signal="pressed" from="UI/Settings/VBoxContainer/Button" to="." method="_on_button_pressed"]
